@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ucz się - II Wojna Światowa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="quiz-container">
+    
+    <!-- Ekran startowy z wyborem kategorii -->
+    <div id="start-screen">
+        <h1>Wybierz tryb nauki</h1>
+        <p>Wybierz epokę, aby uczyć się mniejszymi partiami, lub zrób wielki test!</p>
+        <div id="category-container">
+            <!-- Przyciski generowane przez JS -->
+        </div>
+    </div>
+
+    <!-- Ekran właściwego quizu -->
+    <div id="quiz-screen" style="display: none;">
+        <h1 id="question-type-label">Kiedy wydarzyło się to wydarzenie?</h1>
+        <p>Kolejka: <span id="current-q-num">1</span> / <span id="total-q-num"></span> (błędy wracają na koniec!)</p>
+        <div id="question-text">Ładowanie pytania...</div>
+        
+        <div class="options-grid" id="options-container">
+            <!-- Przyciski odpowiedzi wygenerowane przez JS -->
+        </div>
+
+        <div id="hint-box" style="display: none;">
+            <strong>💡 Wskazówka / Ciekawostka:</strong> <span id="hint-text"></span>
+        </div>
+
+        <div class="status-bar">
+            <div>Rozwiązane: <strong id="score">0</strong></div>
+            <button id="next-btn" onclick="nextQuestion()">Następne ➔</button>
+        </div>
+    </div>
+
+    <!-- Ekran końcowy -->
+    <div id="result-screen" style="display: none;">
+        <h1>Udało się!</h1>
+        <p>Odpowiedziano poprawnie na wszystkie pytania w tej kategorii.</p>
+        <p>Liczba popełnionych po drodze błędów: <strong id="mistakes-count" style="color: #e74c3c;">0</strong></p>
+        <button id="restart-btn" onclick="showStartScreen()">Wróć do menu</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
