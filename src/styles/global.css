@@ -1,0 +1,5 @@
+/* src/styles/global.css */
+@import "tailwindcss";
+
+/* Ta linijka w v4 pozwala na ręczne przełączanie trybu ciemnego za pomocą klasy "dark" na elemencie <html> */
+@custom-variant dark (&:where(.dark, .dark *));

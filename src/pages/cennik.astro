@@ -1,0 +1,91 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const tiers = [
+  {
+    name: 'Starter',
+    price: 'od 1 900 zł',
+    description: 'Idealny wybór dla małych firm potrzebujących prostej wizytówki.',
+    features: ['Indywidualny projekt graficzny', 'Jedna podstrona (One Page)', 'Dostosowanie do urządzeń mobilnych', 'Podstawowe SEO', 'Wsparcie techniczne przez 30 dni'],
+    popular: false,
+  },
+  {
+    name: 'Standard',
+    price: 'od 3 500 zł',
+    description: 'Dla rozwijających się firm, które potrzebują kilku podstron.',
+    features: ['Do 5 podstron tematycznych', 'Integracja z mediami społecznościowymi', 'Formularz kontaktowy / mapa Google', 'Zaawansowana optymalizacja SEO', 'Wsparcie techniczne przez 90 dni'],
+    popular: true,
+  },
+  {
+    name: 'Pro / E-commerce',
+    price: 'od 6 000 zł',
+    description: 'Dedykowane aplikacje i sklepy internetowe szyte na miarę.',
+    features: ['Pełny sklep (do 100 produktów na start)', 'Integracja z płatnościami (Tpay/Przelewy24)', 'System zarządzania treścią (CMS)', 'Pełna analityka (Google Analytics)', 'Wsparcie techniczne przez 180 dni'],
+    popular: false,
+  },
+];
+---
+
+<Layout title="Cennik | StudioDev" description="Przejrzyste pakiety cenowe dostosowane do różnej wielkości projektów.">
+  <section class="py-16 sm:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Nagłówek -->
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <h1 class="text-4xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-5xl">
+          Wybierz odpowiedni plan
+        </h1>
+        <p class="mt-4 text-lg text-slate-600 dark:text-zinc-400">
+          Oferujemy przejrzyste warunki współpracy bez ukrytych kosztów. Dopasuj pakiet do swoich potrzeb.
+        </p>
+      </div>
+
+      <!-- Kafelki cennika -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+        {tiers.map((tier) => (
+          <div class={`flex flex-col justify-between bg-white dark:bg-zinc-900 p-8 rounded-2xl border transition shadow-sm relative ${
+            tier.popular 
+              ? 'border-blue-500 dark:border-blue-400 scale-[1.02] md:scale-[1.03] z-10' 
+              : 'border-slate-200 dark:border-zinc-800'
+          }`}>
+            {tier.popular && (
+              <span class="absolute top-0 right-1/2 translate-x-1/2 -translate-y-1/2 bg-blue-500 text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">
+                Najczęściej wybierany
+              </span>
+            )}
+            <div>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white">{tier.name}</h3>
+              <p class="mt-2 text-sm text-slate-500 dark:text-zinc-400 leading-relaxed min-h-[40px]">{tier.description}</p>
+              <div class="mt-4 flex items-baseline">
+                <span class="text-3xl font-extrabold text-slate-900 dark:text-white">{tier.price}</span>
+              </div>
+              
+              <ul class="mt-8 space-y-4 text-sm text-slate-600 dark:text-zinc-300">
+                {tier.features.map((feature) => (
+                  <li class="flex items-start gap-2">
+                    <span class="text-green-500">✓</span>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="mt-8">
+              <a 
+                href="/kontakt" 
+                class={`block text-center w-full py-3 px-4 rounded-xl font-medium text-sm transition ${
+                  tier.popular 
+                    ? 'bg-blue-600 text-white hover:bg-blue-700' 
+                    : 'bg-slate-100 hover:bg-slate-200 text-slate-950 dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:text-white'
+                }`}
+              >
+                Zapytaj o ten pakiet
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,130 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Przykładowe dane oferty
+const services = [
+  {
+    title: "Strony Internetowe",
+    description: "Szybkie, responsywne i zoptymalizowane pod kątem SEO witryny oparte na nowoczesnych frameworkach.",
+    icon: "💻"
+  },
+  {
+    title: "Sklepy E-commerce",
+    description: "Funkcjonalne sklepy internetowe ułatwiające sprzedaż i zarządzanie asortymentem.",
+    icon: "🛒"
+  },
+  {
+    title: "Wsparcie techniczne",
+    description: "Bieżąca pomoc, aktualizacje oraz dbanie o bezpieczeństwo Twojej strony internetowej.",
+    icon: "⚙️"
+  }
+];
+
+// Przykładowe projekty do portfolio
+const projects = [
+  {
+    title: "E-sklep 'EcoWay'",
+    category: "E-commerce",
+    description: "Nowoczesna platforma sprzedażowa z ekologicznymi produktami.",
+    image: "https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    title: "Portal dla Architektów",
+    category: "Web Application",
+    description: "Aplikacja webowa ułatwiająca zarządzanie projektami i komunikację z klientem.",
+    image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80"
+  }
+];
+---
+
+<Layout title="Strona Główna | StudioDev" description="Tworzymy nowoczesne i szybkie strony internetowe dopasowane do Twoich potrzeb.">
+  
+  <!-- Sekcja Hero -->
+  <section class="relative py-20 lg:py-32 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="inline-flex items-center gap-1.5 py-1 px-3 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 mb-6">
+        Nowoczesne technologie webowe
+      </span>
+      <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white max-w-3xl mx-auto leading-tight">
+        Budujemy cyfrową przyszłość Twojego biznesu
+      </h1>
+      <p class="mt-6 text-lg sm:text-xl text-slate-600 dark:text-zinc-400 max-w-2xl mx-auto">
+        Projektujemy i wdrażamy szybkie strony internetowe, które pomogą Ci dotrzeć do nowych klientów i wyróżnić się w sieci.
+      </p>
+      <div class="mt-10 flex flex-wrap justify-center gap-4">
+        <a href="#kontakt" class="px-6 py-3 rounded-lg bg-blue-600 text-white hover:bg-blue-700 font-medium transition shadow-sm">
+          Skontaktuj się z nami
+        </a>
+        <a href="#oferta" class="px-6 py-3 rounded-lg border border-slate-300 dark:border-zinc-700 hover:bg-slate-100 dark:hover:bg-zinc-800 font-medium transition">
+          Zobacz ofertę
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sekcja Oferty -->
+  <section id="oferta" class="py-20 bg-slate-100/50 dark:bg-zinc-900/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Co oferujemy?</h2>
+        <p class="mt-4 text-slate-600 dark:text-zinc-400">
+          Kompleksowe usługi programistyczne ukierunkowane na realizację celów biznesowych i wysokie standardy techniczne.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {services.map((service) => (
+          <div class="bg-white dark:bg-zinc-900 p-8 rounded-2xl border border-slate-200 dark:border-zinc-800/80 shadow-sm hover:shadow-md transition">
+            <div class="text-4xl mb-4">{service.icon}</div>
+            <h3 class="text-xl font-semibold text-slate-900 dark:text-white mb-2">{service.title}</h3>
+            <p class="text-slate-600 dark:text-zinc-400 text-sm leading-relaxed">{service.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Sekcja Portfolio (Zajawka) -->
+  <section id="portfolio" class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div>
+          <h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Nasze realizacje</h2>
+          <p class="mt-4 text-slate-600 dark:text-zinc-400 max-w-xl">
+            Wybrane projekty, które zrealizowaliśmy z dbałością o optymalizację, dostępność i estetykę.
+          </p>
+        </div>
+        <a href="#" class="mt-4 md:mt-0 text-blue-600 dark:text-blue-400 hover:underline font-medium inline-flex items-center gap-1">
+          Zobacz całe portfolio <span>&rarr;</span>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {projects.map((project) => (
+          <div class="group overflow-hidden rounded-2xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm">
+            <div class="aspect-video w-full overflow-hidden bg-slate-100 dark:bg-zinc-800">
+              <img 
+                src={project.image} 
+                alt={project.title} 
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-[1.02] transition duration-300"
+              />
+            </div>
+            <div class="p-6">
+              <span class="text-xs font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
+                {project.category}
+              </span>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-2 mb-2">
+                {project.title}
+              </h3>
+              <p class="text-slate-600 dark:text-zinc-400 text-sm">
+                {project.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</Layout>

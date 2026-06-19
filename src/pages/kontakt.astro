@@ -1,0 +1,121 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Kontakt | StudioDev" description="Skontaktuj się z nami, aby porozmawiać o Twoim projekcie.">
+  <section class="py-16 sm:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Nagłówek -->
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <h1 class="text-4xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-5xl">
+          Porozmawiajmy o projekcie
+        </h1>
+        <p class="mt-4 text-lg text-slate-600 dark:text-zinc-400">
+          Napisz do nas lub zadzwoń. Chętnie odpowiemy na Twoje pytania i doradzimy najlepsze rozwiązania.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-12">
+        
+        <!-- Kolumna z danymi kontaktowymi (2 z 5 kolumn szerokości) -->
+        <div class="lg:col-span-2 space-y-8">
+          <div>
+            <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Informacje kontaktowe</h2>
+            <p class="text-slate-600 dark:text-zinc-400 text-sm leading-relaxed mb-6">
+              Jeżeli wolisz bezpośredni kontakt, zapraszamy do skorzystania z poniższych kanałów. Odpowiadamy zazwyczaj w ciągu 24 godzin roboczych.
+            </p>
+            
+            <div class="space-y-4">
+              <div class="flex items-center gap-3">
+                <span class="text-xl">📧</span>
+                <div>
+                  <div class="text-xs text-slate-500 dark:text-zinc-400">Adres e-mail</div>
+                  <a href="mailto:kontakt@studiodev.pl" class="text-sm font-semibold hover:underline">kontakt@studiodev.pl</a>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3">
+                <span class="text-xl">📞</span>
+                <div>
+                  <div class="text-xs text-slate-500 dark:text-zinc-400">Numer telefonu</div>
+                  <a href="tel:+48123456789" class="text-sm font-semibold hover:underline">+48 123 456 789</a>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3">
+                <span class="text-xl">📍</span>
+                <div>
+                  <div class="text-xs text-slate-500 dark:text-zinc-400">Lokalizacja</div>
+                  <span class="text-sm font-semibold">Zabrze, Polska</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Formularz kontaktowy (3 z 5 kolumn szerokości) -->
+        <div class="lg:col-span-3 bg-white dark:bg-zinc-900 p-8 rounded-2xl border border-slate-200 dark:border-zinc-800 shadow-sm">
+          <form class="space-y-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label for="first-name" class="block text-sm font-medium text-slate-700 dark:text-zinc-300">Imię</label>
+                <input 
+                  type="text" 
+                  name="first-name" 
+                  id="first-name" 
+                  autocomplete="given-name" 
+                  required
+                  class="mt-1 block w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-zinc-700 bg-transparent text-slate-900 dark:text-white shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition outline-none text-sm" 
+                />
+              </div>
+              <div>
+                <label for="email" class="block text-sm font-medium text-slate-700 dark:text-zinc-300">Email</label>
+                <input 
+                  type="email" 
+                  name="email" 
+                  id="email" 
+                  autocomplete="email" 
+                  required
+                  class="mt-1 block w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-zinc-700 bg-transparent text-slate-900 dark:text-white shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition outline-none text-sm" 
+                />
+              </div>
+            </div>
+
+            <div>
+              <label for="subject" class="block text-sm font-medium text-slate-700 dark:text-zinc-300">Temat</label>
+              <input 
+                type="text" 
+                name="subject" 
+                id="subject" 
+                required
+                class="mt-1 block w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-zinc-700 bg-transparent text-slate-900 dark:text-white shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition outline-none text-sm" 
+              />
+            </div>
+
+            <div>
+              <label for="message" class="block text-sm font-medium text-slate-700 dark:text-zinc-300">Wiadomość</label>
+              <textarea 
+                id="message" 
+                name="message" 
+                rows="4" 
+                required
+                class="mt-1 block w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-zinc-700 bg-transparent text-slate-900 dark:text-white shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition outline-none text-sm"
+              ></textarea>
+            </div>
+
+            <div>
+              <button 
+                type="submit" 
+                class="w-full flex justify-center py-3 px-4 rounded-lg bg-blue-600 text-white hover:bg-blue-700 font-medium text-sm transition shadow-sm"
+              >
+                Wyślij wiadomość
+              </button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</Layout>
