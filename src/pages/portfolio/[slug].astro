@@ -1,0 +1,62 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+// Definiowanie statycznych ścieżek dla wszystkich wpisów w kolekcji
+export async function getStaticPaths() {
+  const portfolioEntries = await getCollection('portfolio');
+  return portfolioEntries.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+// Pobranie danych przekazanych w propsach
+const { entry } = Astro.props;
+
+// Wyrenderowanie komponentu Content z pliku MDX
+const { Content } = await entry.render();
+---
+
+<Layout title={`${entry.data.title} | Portfolio`} description={entry.data.description}>
+  <article class="py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Link powrotny -->
+    <a 
+      href="/portfolio" 
+      class="text-sm font-medium text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-white inline-flex items-center gap-2 mb-8 transition"
+    >
+      <span>&larr;</span> Powrót do portfolio
+    </a>
+
+    <!-- Nagłówek projektu -->
+    <header class="mb-12">
+      <span class="text-sm font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
+        {entry.data.category}
+      </span>
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white mt-2 mb-4">
+        {entry.data.title}
+      </h1>
+      <p class="text-lg sm:text-xl text-slate-600 dark:text-zinc-400 font-normal leading-relaxed">
+        {entry.data.description}
+      </p>
+    </header>
+
+    <!-- Zdjęcie główne projektu -->
+    {entry.data.image && (
+      <div class="aspect-[21/9] w-full rounded-2xl overflow-hidden mb-12 bg-slate-100 dark:bg-zinc-800 shadow-sm">
+        <img 
+          src={entry.data.image} 
+          alt={entry.data.title} 
+          class="w-full h-full object-cover"
+        />
+      </div>
+    )}
+
+    <!-- Dynamiczna treść MDX z renderera Astro -->
+    <div class="prose prose-slate dark:prose-invert max-w-none">
+      <Content />
+    </div>
+
+  </article>
+</Layout>
